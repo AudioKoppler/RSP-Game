@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Asap&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="RPSstyle.css" type="text/css" />
+
+    <title>RPS Game by K.Meyer</title>
+</head>
+
+<body>
+    <header>
+        <h1>Rock, Paper, Scissors Game</h1>
+        <p>by k.Meyer</p>
+    </header>
+    <div class="score-board">
+        <h2>Score Board</h2>
+        <div class="userLabel" id="badgePlayer">Player
+        </div>
+        <script type="text/javascript" src="RPS.js"></script>
+        <div class="compLabel" id="badgeComp">Computer</div>
+        <span class="userScore">0</span><span>:</span><span class="compScore">0</span>
+    </div>
+    <p class="actionMSG" id="actionMSG">Paper covers Rock!!</p>
+    <div class="choices">
+        <script>
+            function item(x) {
+                var userItem = x;
+                var appItem = ["Rock", "Paper", "Scissor"][Math.floor(Math.random() * 3)];
+
+                function compare() {
+                    if (appItem === userItem) {
+                        document.getElementById("actionMSG").innerHTML = "This is a DRAW";
+                        document.getElementById("result").innerHTML = "Nobody wins!";
+                    }
+                    else if (appItem === 'Rock') {
+
+                        if (userItem === 'Scissor') {
+                            document.getElementById("actionMSG").innerHTML = "ROCK destroys SCISSOR";
+                            document.getElementById("result").innerHTML = "You LOOSE!";
+                        }
+                    }
+                    else if (appItem === 'Paper') {
+
+                        if (userItem === 'Rock') {
+                            document.getElementById("actionMSG").innerHTML = "PAPER covers ROCK";
+                            document.getElementById("result").innerHTML = "You LOOSE!";
+                        } else {
+                            document.getElementById("actionMSG").innerHTML = "SCISSOR cuts PAPER";
+                            document.getElementById("result").innerHTML = "You WIN!";
+                        }
+                    }
+                    else if (appItem === 'Scissor') {
+
+                        if (userItem === 'Rock') {
+                            document.getElementById("actionMSG").innerHTML = "ROCK destroys SCISSOR";
+                            document.getElementById("result").innerHTML = "You WIN!";
+                        } else if (userItem === 'Paper') {
+                            document.getElementById("actionMSG").innerHTML = "SCISSOR cuts PAPER";
+                            document.getElementById("result").innerHTML = "You LOOSE!";
+                        }
+                    }
+                };
+                console.log(userItem);
+                console.log(appItem);
+                compare();
+            }
+
+        </script>
+        <img class="choice" id="Rock" onclick="item(this.id)" src="img/rock.png" alt="Rock">
+        <img class="choice" id="Paper" onclick="item(this.id)" src="img/paper.png" alt="Paper">
+        <img class="choice" id="Scissor" onclick="item(this.id)" src="img/scissor.png" alt="Scissor">
+    </div>
+    <p class="result" id="result">You won the game !!!</p>
+    <br><br><br>
+    <footer>
+        <p>copyright 2020</p>
+    </footer>
+</body>
+
+</html>
