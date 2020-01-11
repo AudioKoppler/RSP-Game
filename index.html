@@ -24,9 +24,23 @@
         <div class="compLabel" id="badgeComp">Computer</div>
         <span class="userScore">0</span><span>:</span><span class="compScore">0</span>
     </div>
-    <p class="actionMSG" id="actionMSG">Paper covers Rock!!</p>
+    <p class="actionMSG" id="actionMSG"></p>
+    <div class="Indicator" id="Indicator">
+        <div class="userIndicator" id="userIndicator">.</div>
+        <div class="compIndicator" id="compIndicator">.</div>
+    </div>
     <div class="choices">
         <script>
+            var compNames = [
+                "Mighty Mike", "Ms.Peppermint", "The Bug", "Mr. Handsome"
+            ][Math.floor(Math.random() * 4)];
+            document.getElementById("badgeComp").innerHTML = compNames;
+
+            function playAudio(url) {
+                var onclick = new Audio(url);
+                onclick.play();
+            }
+
             function item(x) {
                 var userItem = x;
                 var appItem = ["Rock", "Paper", "Scissor"][Math.floor(Math.random() * 3)];
@@ -37,10 +51,12 @@
                         document.getElementById("result").innerHTML = "Nobody wins!";
                     }
                     else if (appItem === 'Rock') {
+                        /* document.getElementById("compIndicator").innerHTML = "Opponent chose Rock"; */
 
                         if (userItem === 'Scissor') {
                             document.getElementById("actionMSG").innerHTML = "ROCK destroys SCISSOR";
                             document.getElementById("result").innerHTML = "You LOOSE!";
+                            /* document.getElementById("userIndicator").innerHTML = "you chose scissor"; */
                         }
                     }
                     else if (appItem === 'Paper') {
@@ -68,13 +84,12 @@
                 console.log(appItem);
                 compare();
             }
-
         </script>
-        <img class="choice" id="Rock" onclick="item(this.id)" src="img/rock.png" alt="Rock">
-        <img class="choice" id="Paper" onclick="item(this.id)" src="img/paper.png" alt="Paper">
-        <img class="choice" id="Scissor" onclick="item(this.id)" src="img/scissor.png" alt="Scissor">
+        <img class="choice" id="Rock" onclick="item(this.id),playAudio('media/tick.mp3')" src="img/rock.png">
+        <img class="choice" id="Paper" onclick="item(this.id),playAudio('media/tick.mp3')" src="img/paper.png">
+        <img class="choice" id="Scissor" onclick="item(this.id),playAudio('media/tick.mp3')" src="img/scissor.png">
     </div>
-    <p class="result" id="result">You won the game !!!</p>
+    <p class="result" id="result"></p>
     <br><br><br>
     <footer>
         <p>copyright 2020</p>

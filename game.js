@@ -1,78 +1,48 @@
-/* 
+var compNames = [
+    "Mighty Mike", "Ms.Peppermint", "The Bug", "Mr. Handsome"
+][Math.floor(Math.random() * 4)];
+document.getElementById("badgeComp").innerHTML = compNames;
+
 function item(x) {
-    console.log(x);
-}; */
-/*
-<button id="rock" onclick="item(this.id)">Rock</button>
-    <button id="paper" onclick="item(this.id)">Paper</button>
-    <button id="scissor" onclick="item(this.id)">Scissor</button> */
-var appItem = ["Rock", "Paper", "Scissors"][Math.floor(Math.random() * 3)];
-var userItem = ;
+    var userItem = x;
+    var appItem = ["Rock", "Paper", "Scissor"][Math.floor(Math.random() * 3)];
 
+    function compare() {
+        if (appItem === userItem) {
+            document.getElementById("actionMSG").innerHTML = "This is a DRAW";
+            document.getElementById("result").innerHTML = "Nobody wins!";
+        }
+        else if (appItem === 'Rock') {
+            /* document.getElementById("compIndicator").innerHTML = "Opponent chose Rock"; */
 
-/* let converter = function (itemNumber) {
-    switch (itemNumber) {
-        case 1:
-            return ('Rock');
-        case 2:
-            return ('Paper');
-        case 3:
-            return ('Scissors');
-        default:
-            return ('Number has to be between 1-3');
-    }
-}; 
+            if (userItem === 'Scissor') {
+                document.getElementById("actionMSG").innerHTML = "ROCK destroys SCISSOR";
+                document.getElementById("result").innerHTML = "You LOOSE!";
+                /* document.getElementById("userIndicator").innerHTML = "you chose scissor"; */
+            }
+        }
+        else if (appItem === 'Paper') {
 
-let game = {
-    userItem: converter(userItem),
+            if (userItem === 'Rock') {
+                document.getElementById("actionMSG").innerHTML = "PAPER covers ROCK";
+                document.getElementById("result").innerHTML = "You LOOSE!";
+            } else {
+                document.getElementById("actionMSG").innerHTML = "SCISSOR cuts PAPER";
+                document.getElementById("result").innerHTML = "You WIN!";
+            }
+        }
+        else if (appItem === 'Scissor') {
+
+            if (userItem === 'Rock') {
+                document.getElementById("actionMSG").innerHTML = "ROCK destroys SCISSOR";
+                document.getElementById("result").innerHTML = "You WIN!";
+            } else if (userItem === 'Paper') {
+                document.getElementById("actionMSG").innerHTML = "SCISSOR cuts PAPER";
+                document.getElementById("result").innerHTML = "You LOOSE!";
+            }
+        }
+    };
+    console.log(userItem);
+    console.log(appItem);
+    compare();
 }
-*/
-function compare() {
-    if (appItem === userItem) {
-        alert("This is a tie!!");
-    }
-    else if (appItem === 'Rock') {
-
-        if (userItem === 'Scissors') {
-            alert("Rock wins");
-        }
-    }
-    else if (appItem === 'Paper') {
-
-        if (userItem === 'Rock') {
-            alert("Paper wins");
-        } else {
-            alert("Scissors win");
-        }
-    }
-    else if (appItem === 'Scissors') {
-
-        if (userItem === 'Rock') {
-            alert("Rock wins");
-        } else if (userItem === 'Paper') {
-            alert("Scissors wins");
-        }
-    }
-};
-console.log(userItem);
-console.log(appItem);
-compare();
-
-    /*
-    for (var i = 0, max = 3; i < max; i += 1) {
-        getResource(i);
-    } */
-
-
-    /* ################################################# */
-    /* GUI TEST
-    
-    function player() {
-        var x = document.getElementById("mySelect").value;
-        document.getElementById("player-selection").innerHTML = "You selected: " + x;
-    }
-     ################################################# */
-
-
-
-

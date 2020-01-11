@@ -66,19 +66,21 @@ h2 {
 }
 #badgePlayer {
     background-color: cadetblue;
-    padding: 10px;
+    padding: 5px;
     position: relative;
     font-size: 14px;
-    width: max-content;
+    width: 100px;
     border-radius: 5px;  
+    margin: -10px;
 }
 #badgeComp {
     background-color: firebrick;
-    padding: 10px;
+    padding: 5px;
     position: relative;
     font-size: 14px;
-    width: max-content;
+    width: 100px;
     border-radius: 5px;  
+    margin: -10px;
 }
 .userLabel {
     text-align: center;
@@ -112,4 +114,18 @@ h2 {
     background-color: rgba(0, 128, 0, 0.349);
     border-color: rgb(0, 128, 0);
     cursor: pointer;
+}
+.actionMSG{
+    height: 50px;
+}
+.Indicator{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+}
+.userIndicator{
+    
+}
+.compIndicator{
+
 }
