@@ -42,7 +42,5 @@ function item(x) {
             }
         }
     };
-    console.log(userItem);
-    console.log(appItem);
     compare();
-}
+} 1
