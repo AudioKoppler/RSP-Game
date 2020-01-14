@@ -47,11 +47,30 @@ p {
     cursor: not-allowed;
 }
 span {
-    font-size: 40px;
+    font-size: 20px;
 }
 h2 {
     position: relative;
     margin-top: 20px;
+}
+.scoreboard{
+display: flexbox;
+margin-bottom: 30px;
+
+}
+.CS {
+display: flex;
+flex-direction: row;
+width: min-content;
+position: absolute;
+margin:-50px 0 0 100px;
+}
+.US{
+display: flex;
+flex-direction: row;
+width: min-content;
+position: absolute;
+margin:-32px 0 0 60px;
 }
 #player {
     padding: 0;

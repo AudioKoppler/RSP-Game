@@ -20,9 +20,23 @@
         <h2>Score Board</h2>
         <div class="userLabel" id="badgePlayer">Player
         </div>
-        <script type="text/javascript" src="RPS.js"></script>
+        <script type="text/javascript" src="enterName.js"></script>
         <div class="compLabel" id="badgeComp">Computer</div>
-        <span class="userScore">0</span><span>:</span><span class="compScore">0</span>
+
+        <div class="scoreboard">
+
+            <div class="US">
+                <p id="user-Score">0</p>
+            </div>
+            <div class="seperator">
+                :
+            </div>
+
+            <div class="CS">
+                <p id="comp-Score">0</p>
+            </div>
+        </div>
+
     </div>
     <p class="actionMSG" id="actionMSG"></p>
     <div class="Indicator" id="Indicator">
@@ -31,6 +45,9 @@
     </div>
     <div class="choices">
         <script>
+
+            var userScore = 0;
+            var compScore = 0;
             var compNames = [
                 "Mighty Mike", "Ms.Peppermint", "The Bug", "Mr. Handsome"
             ][Math.floor(Math.random() * 4)];
@@ -39,7 +56,23 @@
             function playAudio(url) {
                 var onclick = new Audio(url);
                 onclick.play();
-            }
+            };
+            // SCOREBOARD
+
+            function scoreUser(winner) {
+                if (winner === userScore) {
+                    userScore = userScore + 1;
+                    console.log(userScore);
+                    document.getElementById("user-Score").innerHTML = userScore;
+                }
+            };
+            function scoreComp(winner) {
+                var maxGames = 10;
+                compScore = compScore + 1;
+                console.log(compScore);
+                document.getElementById("comp-Score").innerHTML = compScore;
+            };
+            //SB END
 
             function item(x) {
                 var userItem = x;
@@ -49,14 +82,15 @@
                     if (appItem === userItem) {
                         document.getElementById("actionMSG").innerHTML = "This is a DRAW";
                         document.getElementById("result").innerHTML = "Nobody wins!";
+
                     }
                     else if (appItem === 'Rock') {
                         /* document.getElementById("compIndicator").innerHTML = "Opponent chose Rock"; */
 
                         if (userItem === 'Scissor') {
-                            document.getElementById("actionMSG").innerHTML = "ROCK destroys SCISSOR";
+                            document.getElementById("actionM1SG").innerHTML = "ROCK destroys SCISSOR";
                             document.getElementById("result").innerHTML = "You LOOSE!";
-                            /* document.getElementById("userIndicator").innerHTML = "you chose scissor"; */
+                            scoreComp(compScore);
                         }
                     }
                     else if (appItem === 'Paper') {
@@ -64,9 +98,13 @@
                         if (userItem === 'Rock') {
                             document.getElementById("actionMSG").innerHTML = "PAPER covers ROCK";
                             document.getElementById("result").innerHTML = "You LOOSE!";
+                            scoreComp(compScore);
+
                         } else {
                             document.getElementById("actionMSG").innerHTML = "SCISSOR cuts PAPER";
                             document.getElementById("result").innerHTML = "You WIN!";
+                            scoreUser(userScore);
+
                         }
                     }
                     else if (appItem === 'Scissor') {
@@ -74,15 +112,18 @@
                         if (userItem === 'Rock') {
                             document.getElementById("actionMSG").innerHTML = "ROCK destroys SCISSOR";
                             document.getElementById("result").innerHTML = "You WIN!";
+                            scoreUser(userScore);
                         } else if (userItem === 'Paper') {
+
                             document.getElementById("actionMSG").innerHTML = "SCISSOR cuts PAPER";
                             document.getElementById("result").innerHTML = "You LOOSE!";
+                            scoreComp(compScore);
                         }
+
                     }
                 };
-                console.log(userItem);
-                console.log(appItem);
                 compare();
+
             }
         </script>
         <img class="choice" id="Rock" onclick="item(this.id),playAudio('media/tick.mp3')" src="img/rock.png">

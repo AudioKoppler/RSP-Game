@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="scoreboard">
+        <p id="user-Score">0</p>
+        <p id="comp-Score">0</p>
+    </div>
+    <script>
+        var userScore = 0;
+        var compScore = 0;
+
+        function scoreUser(winner) {
+            if (winner === userScore) {
+                userScore = userScore + 1;
+                console.log(userScore);
+                document.getElementById("user-Score").innerHTML = userScore;
+            }
+        };
+        function scoreComp(winner) {
+            var maxGames = 10;
+            compScore = compScore + 1;
+            console.log(compScore);
+            document.getElementById("comp-Score").innerHTML = compScore;
+        }
+    </script>
+    <button onclick="scoreUser(userScore)">userScore</button>q
+    <button onclick="scoreComp(compScore)">compScore</button>
+</body>
+
+</html>
