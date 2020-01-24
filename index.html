@@ -63,11 +63,10 @@
                 if (winner === userScore) {
                     userScore = userScore + 1;
                     console.log(userScore);
-                    document.getElementById("user-Score").innerHTML = userScore;
+                    document.getElementById("userScore").innerHTML = userScore;
                 }
             };
             function scoreComp(winner) {
-                var maxGames = 10;
                 compScore = compScore + 1;
                 console.log(compScore);
                 document.getElementById("comp-Score").innerHTML = compScore;
